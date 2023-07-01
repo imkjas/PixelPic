@@ -1,12 +1,76 @@
-body{
-    background-color: #001233;
-}
-div{
-    background-color: #F55759;
-    width: 40%;
+@font-face {
+    font-family: 'BeVietnam';
+    src: url('../utils/fonts/BeVietnamPro-Regular.ttf') format('truetype');
 }
 
-.bottom{
+body{
+    background-color: #001233;
+    width: 100%;
+    height: 100%;
+}
+.trapezoid1 {
+    height: 95px;
+    width: 550px;
     background-color: #F55759;
-    width: 40%;
+    border-radius: 0px 0px 50px 50px;
+    margin: 0px 0px 0px 130px;
+}
+.trapezoid2 {
+    height: 95px;
+    width: 550px;
+    background-color: #F55759;
+    border-radius: 50px 50px 0px 0px;
+    margin: 0px 0px 0px 130px;
+}
+.login{
+    background-color: white;
+    width: 360px;
+    height: 550px;
+    border-radius: 50px;
+    margin: 50px 10px 50px 170px;
+    padding: 50px;
+    font-family: 'BeVietnam';
+    color: #F55759;
+    font-size: 24px;
+}
+.login input{
+    width: 350px;
+    height: 40px;
+    background-color: #ECDCC5;
+    border: none;
+}
+.username{
+    margin-top: 70px;
+}
+.password{
+    margin-top: 50px;
+}
+.new-user{
+    font-size: 18px;
+    text-decoration: underline;
+    font-style: italic;
+    display: block;
+    margin-top: 15px;
+}
+.login-button{
+    background-color: #001233;
+    color: #F55759;
+    display: block;
+    font-family: 'BeVietnam';
+    font-size: 22px;
+    padding: 10px 40px;
+    border-radius: 20px;
+    margin-top: 80px;
+    margin-left: 100px;
+}
+.forgot-password{
+    font-size: 18px;
+    font-style: italic;
+    text-decoration: underline;
+    margin-left: 97px;
+}
+.login-column{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px; 
 }
