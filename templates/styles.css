@@ -3,10 +3,13 @@
     src: url('../utils/fonts/BeVietnamPro-Regular.ttf') format('truetype');
 }
 
-body{
+html,body{
     background-color: #001233;
-    width: 100%;
-    height: 100%;
+    width: 1500px;
+    height: 960px;
+    font-family: 'BeVietnam';
+    margin: 0;
+    padding: 0;
 }
 .trapezoid1 {
     height: 95px;
@@ -25,7 +28,7 @@ body{
 .login{
     background-color: white;
     width: 360px;
-    height: 550px;
+    height: 570px;
     border-radius: 50px;
     margin: 50px 10px 50px 170px;
     padding: 50px;
@@ -38,11 +41,14 @@ body{
     height: 40px;
     background-color: #ECDCC5;
     border: none;
+    font-size: 23px;
+    color: #001233;
+
 }
-.username{
+.login username{
     margin-top: 70px;
 }
-.password{
+.login password{
     margin-top: 50px;
 }
 .new-user{
@@ -56,7 +62,6 @@ body{
     background-color: #001233;
     color: #F55759;
     display: block;
-    font-family: 'BeVietnam';
     font-size: 22px;
     padding: 10px 40px;
     border-radius: 20px;
@@ -72,5 +77,64 @@ body{
 .login-column{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 40px; 
+    grid-gap: 150px; 
+    min-height: 100%;
+}
+.logo{
+    display: block;
+    width: 350px;
+    margin-top: 70px;
+}
+.sample{
+    display: block;
+    border: 5px solid #F55759;
+    border-radius: 50px;
+}
+.desc{
+    font-size: 20px;
+    line-height: 35px;
+    color: #D8D2C4;
+    width: 500px;
+}
+
+/*REGISTER SCREEN*/
+
+.register{
+    background-color: white;
+    width: 360px;
+    height: 590px;
+    border-radius: 50px;
+    margin: 50px 10px 50px 170px;
+    padding: 40px 50px;
+    color: #F55759;
+    font-size: 24px;
+}
+.register p{
+    margin: 3px;
+}
+.register input{
+    width: 350px;
+    height: 37px;
+    background-color: #ECDCC5;
+    border: none;
+    margin: 1px;
+    font-size: 23px;
+    color: #001233;
+}
+.old-user{
+    font-size: 18px;
+    text-decoration: underline;
+    font-style: italic;
+    display: block;
+    margin-top: 5px;
+}
+.signup-button{
+    background-color: #001233;
+    color: #F55759;
+    display: block;
+    font-size: 22px;
+    padding: 10px 40px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 100px;
 }
