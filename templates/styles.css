@@ -138,3 +138,53 @@ html,body{
     margin-top: 20px;
     margin-left: 100px;
 }
+/*Forgot Password*/
+
+.Submit-button{
+    background-color: #001233;
+    color: #F55759;
+    display: block;
+    font-size: 22px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: 51px;
+    margin-left: 220px;
+}
+
+.back-button{
+    background-color: #001233;
+    color: #F55759;
+    display: block;
+    font-size: 22px;
+    padding: 10px 20px;
+    border-radius: 20px;    
+    margin-top: -51px;
+    margin-left: 30px;
+}
+
+.Forgotpassword-column{
+    background-color: white;
+    width: 360px;
+    height: 299px;
+    border-radius: 50px;
+    margin: 50px 10px 50px 170px;
+    padding: 50px;
+    font-family: 'BeVietnam';
+    color: #F55759;
+}
+.ForgotpassDisc{
+    margin-top: 10px;
+    font-size: 20px;
+}
+.ForgotEmail{
+    margin-top: 20px;
+    font-size: 30px;
+}
+.Forgotpassword-column input{
+    width: 350px;
+    height: 40px;
+    background-color: #ECDCC5;
+    border: none;
+    font-size: 23px;
+    color: #001233;
+}
