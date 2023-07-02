@@ -206,3 +206,33 @@ html,body{
 .button-group active{
     border-color: #F55759;
 }
+.img{
+    display: none;
+}
+.photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imglbl {
+    background-color: #ECDCC5;
+    width: 471px;
+    height: 333.08px;
+    border-radius: 50px;
+    margin: 50px 10px 50px 170px;
+    padding: 40px 50px;
+    color: #F55759;
+    font-size: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.imgicon {
+    width: 300px;
+}
+
