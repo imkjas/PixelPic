@@ -138,22 +138,7 @@ html,body{
     margin-top: 20px;
     margin-left: 100px;
 }
-
 /*Forgot Password*/
-.forgotpassword button{
-    background-color: #001233;
-    color: #F55759;
-    display: inline-block;
-    font-size: 20px;
-    width: 150px;
-    height: 50px;
-    border-radius: 20px;
-    margin-left: 15px;
-    margin-top: 10px;
-}
-
-.submit-button{
-}
 .forgotpassword{
     background-color: white;
     width: 360px;
@@ -161,9 +146,20 @@ html,body{
     border-radius: 50px;
     margin: 185px 10px 185px 170px;
     padding: 50px;
-    font-family: 'BeVietnam';
     color: #F55759;
 }
+.forgotpass-buttons button{
+    background-color: #001233;
+    color: #F55759;
+    display: inline-block;
+    font-size: 22px;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
 .forgotpassDisc{
     margin-top: 10px;
     font-size: 18px;
