@@ -206,7 +206,8 @@ html,body{
     width: 150px;
     border-radius: 10px;
 }
-.button-group active{
+.button-group current{
+    border-width: 1px;
     border-color: #F55759;
 }
 .img{
