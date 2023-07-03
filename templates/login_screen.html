@@ -18,7 +18,7 @@
                 <input type="password" name="password" autocomplete="off" required>
                 <a class="new-user" href="{{ url_for('register') }}">Don't have an account yet?</a>
                 <button type="submit" class="login-button">LOG IN</button>
-                <a class="forgot-password">Forgot Password?</a>
+                <a class="forgot-password" href="{{ url_for('forgotpass') }}">Forgot Password?</a>
                 {% if error_message %}
                 <p>{{ error_message }}</p>
                 {% endif %}

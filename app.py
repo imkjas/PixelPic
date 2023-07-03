@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for,session
 import pyrebase
 from requests.exceptions import HTTPError
 
@@ -16,14 +16,29 @@ firebaseConfig={
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 
-app= Flask(__name__)
+app = Flask(__name__)
+app.secret_key = 'your_secret_key_here'
+
+def check_user_logged_in():
+    if 'user_id' in session:
+        return True
+    else:
+        return False
+
+
 @app.route('/')
 def home():
-    return render_template('home_screen.html')
+    user_logged_in = check_user_logged_in()
+
+    return render_template('home_screen.html', user_logged_in=user_logged_in)
+
 
 @app.route('/go_premium')
 def go_premium():
-    return render_template('go_premium.html')
+    user_logged_in = check_user_logged_in() 
+
+    return render_template('go_premium.html', user_logged_in=user_logged_in)
+
 
 @app.route('/login_screen', methods=['GET', 'POST'])
 def login():
@@ -32,13 +47,14 @@ def login():
         password = request.form.get('password')
         try:
             login = auth.sign_in_with_email_and_password(email, password)
-            print("Successfully logged in!")
+            session['user_id'] = login['idToken']
             return redirect(url_for('home'))
         except:
             error_message = "Invalid email or password"
             return render_template('login_screen.html', error_message=error_message)
 
     return render_template('login_screen.html')
+
 
 @app.route('/register_screen', methods=['GET', 'POST'])
 def register():
@@ -73,6 +89,13 @@ def register():
 @app.route('/forgotpass')
 def forgotpass():
     return render_template('forgot_password.html')
+
+
+@app.route('/logout')
+def logout():
+    session.pop('user_id', None)
+    return redirect(url_for('home'))
+
 
 if __name__ == '__main__':
     app.run()
