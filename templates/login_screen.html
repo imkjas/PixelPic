@@ -7,17 +7,21 @@
     <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body>
-    <div class="login-column">
+    <form method="POST" action="{{ url_for('login') }}">
+    <div class="login-column"> 
         <section>
             <div class="trapezoid1"></div>
             <div class="login">
-                <p class="username">Username</p>
-                <input type="text">
-                <p class="password">Password</p>
-                <input type="text">
-                <a class="new-user">Don't have an account yet?</a>
-                <button class="login-button">LOG IN</button>
+                <p class="email" for="email">Email</p>
+                <input type="email" name="email" autocomplete="off" required>
+                <p class="password" for="password">Password</p>
+                <input type="password" name="password" autocomplete="off" required>
+                <a class="new-user" href="{{ url_for('register') }}">Don't have an account yet?</a>
+                <button type="submit" class="login-button">LOG IN</button>
                 <a class="forgot-password">Forgot Password?</a>
+                {% if error_message %}
+                <p>{{ error_message }}</p>
+                {% endif %}
             </div>
             <div class="trapezoid2"></div>
         </section>
@@ -29,5 +33,6 @@
             </div>
         </section>
     </div>
+    </form>
 </body>
 </html>

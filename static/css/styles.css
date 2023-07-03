@@ -57,6 +57,7 @@ html,body{
     font-style: italic;
     display: block;
     margin-top: 15px;
+    color: #F55759;
 }
 .login-button{
     background-color: #001233;
@@ -123,6 +124,7 @@ html,body{
     color: #001233;
 }
 .old-user{
+    color: #F55759;
     font-size: 18px;
     text-decoration: underline;
     font-style: italic;
@@ -139,6 +141,10 @@ html,body{
     margin-top: 20px;
     margin-left: 100px;
     border: none;
+}
+
+.error-message{
+    font-size: 20px;
 }
 /*Forgot Password*/
 .forgotpassword{

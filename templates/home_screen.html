@@ -10,9 +10,15 @@
     <div class="menu-bar">
         <img class="home-logo" src="../static/utils/images/pixelpic_logo.png" alt="Pixel Pic">
         <div class="button-group">
-            <button class="current">Home</button>
-            <a href="{{ url_for('go_premium') }}"><button>Go Premium</button></a>
-            <a href="{{ url_for('go_premium') }}"><button>Logout</button></a>
+            {% if user_logged_in %}
+                <button class="current">Home</button>
+                <a href="{{ url_for('go_premium') }}"><button>Go Premium</button></a>
+                <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+            {% else %}
+                <button class="current">Home</button>
+                <a href="{{ url_for('register') }}"><button>Register</button></a>
+                <a href="{{ url_for('login') }}"><button>Login</button></a>
+            {% endif %}
         </div>
     </div>
     <div class="home-column">
@@ -20,7 +26,6 @@
             <p class="home-title">UPSCALE YOUR IMAGE</p>
             <p class="home-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
         </section>
-       
         
         <section>
             <div class="photo">
