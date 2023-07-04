@@ -24,35 +24,31 @@
     <div class="home-column">
         <section class="home-describe">
             <p class="home-title">UPSCALE YOUR IMAGE</p>
-            <p class="home-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            <p class="home-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </section>
-        
+
         <section>
             <div class="photo">
-               <input class="img" type="file" id="file" accept="image/*" onchange="updateUploadStatus()">
+                <input class="img" type="file" id="file" accept="image/*" onchange="updateUploadStatus()">
                 <label class="imglbl" for="file">
                     <img class="imgicon" src="../static/utils/images/Imgicon.png">
                 </label>
                 <div class="Upscale">
-                    <button class="UpscaleButt">UPSCALE</button>
+                    <button class="UpscaleButt" onclick="upscaleImage()">UPSCALE</button>
                     <span class="upload-status"></span>
                 </div>
+                <div id="image-container">
+                    <!-- Empty div -->
+                </div>
+
+                <div class="Upscale1">
+                    <button class="DownloadButt" onclick="downloadImage()">DOWNLOAD</button>
+                </div>
+
+                
             </div>
         </section>
-        
-        <script>
-            function updateUploadStatus() {
-                var fileInput = document.getElementById('file');
-                var uploadStatus = document.querySelector('.upload-status');
-                if (fileInput.files.length > 0) {
-                    var fileSize = fileInput.files[0].size / 1024 / 1024; // size in MB
-                    uploadStatus.textContent = 'Photo has been uploaded. ' + fileSize.toFixed(2) + ' MB';
-                } else {
-                    uploadStatus.textContent = '';
-                }
-            }
-        </script>
-        
+        <script src="/static/JS/main.js"></script>
     </div>
 </body>
 </html>
