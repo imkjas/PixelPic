@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for,session
 import pyrebase
 from requests.exceptions import HTTPError
+import re
 
 firebaseConfig={
     'apiKey': "AIzaSyAU64526sGBB8ZP-M7mgocQkSbyAFJ3klM",
@@ -55,7 +56,6 @@ def login():
 
     return render_template('login_screen.html')
 
-
 @app.route('/register_screen', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -65,12 +65,23 @@ def register():
         first_name = request.form.get('first_name')
         last_name = request.form.get('last_name')
 
-        if len(password) < 6:
-            error_message = 'Password should be at least 6 characters.'
-            return render_template('register_screen.html', error_message=error_message)
-
+        
         if not username or not first_name or not last_name:
             error_message = 'Please fill in all the required fields.'
+            return render_template('register_screen.html', error_message=error_message)
+
+        # Regular expression pattern for email format
+        email_pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+        
+        if not re.match(email_pattern, email):
+            error_message = 'Invalid email format.'
+            return render_template('register_screen.html', error_message=error_message)
+
+        # Regular expression pattern for password conditions
+        password_pattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$"
+        
+        if not re.match(password_pattern, password):
+            error_message = 'Password should contain at least 1 uppercase letter, 1 lowercase letter, 1 special character, and 1 number.'
             return render_template('register_screen.html', error_message=error_message)
 
         try:
@@ -86,8 +97,29 @@ def register():
     return render_template('register_screen.html')
 
 
-@app.route('/forgotpass')
+@app.route('/reset_password', methods=['POST'])
+def reset_password():
+    email = request.form.get('email')
+    
+    try:
+        auth.send_password_reset_email(email)
+        return render_template('forgot_password.html', reset_success=True)
+    except:
+        error_message = "Failed to send password reset email. Please try again."
+        return render_template('forgot_password.html', error_message=error_message)
+
+@app.route('/forgotpass', methods=['GET', 'POST'])
 def forgotpass():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        
+        try:
+            auth.send_password_reset_email(email)
+            return render_template('forgot_password.html', reset_success=True)
+        except:
+            error_message = "Failed to send password reset email. Please try again."
+            return render_template('forgot_password.html', error_message=error_message)
+    
     return render_template('forgot_password.html')
 
 
