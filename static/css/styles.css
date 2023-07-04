@@ -163,7 +163,7 @@ html,body{
     padding: 50px;
     color: #F55759;
 }
-.forgotpass-buttons a{
+.forgotpass-buttons a, .forgot-pass-submit{
     background-color: #001233;
     color: #F55759;
     display: inline-block;
@@ -187,7 +187,7 @@ html,body{
     margin-top: 20px;
     font-size: 30px;
 }
-.forgotpassword input{
+.forgot-pass-email{
     width: 350px;
     height: 40px;
     background-color: #ECDCC5;
