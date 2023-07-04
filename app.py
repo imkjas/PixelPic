@@ -65,7 +65,10 @@ def register():
         first_name = request.form.get('first_name')
         last_name = request.form.get('last_name')
 
-        
+        if len(password) < 6:
+            error_message = 'Password should be at least 6 characters.'
+            return render_template('register_screen.html', error_message=error_message)
+
         if not username or not first_name or not last_name:
             error_message = 'Please fill in all the required fields.'
             return render_template('register_screen.html', error_message=error_message)
